@@ -1,4 +1,5 @@
 Schnorr Signature Demo – README
+
 This demonstration script shows the flow of generating a private key, creating a signature for a user-provided message, and verifying that signature manually. It uses small, insecure parameters (p=23, q=11, g=2), purely for educational purposes.
 
 1. Features
