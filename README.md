@@ -8,6 +8,7 @@ Message Signing: Prompts the user for a message, creates a Schnorr signature (r,
 Manual Verification: Displays the real public key, then asks the user to enter a public key. If they enter the correct y, the signature is valid; otherwise, it fails.
 
 
+
 2. How to Run
 Make sure you have Python (version 3.6+).
 Save the file as, for example, schnorr_demo.py.
@@ -18,6 +19,8 @@ Follow the on-screen prompts:
 Type a message.
 The script shows (r, s) (your signature) and the real y (public key).
 Enter y back in correctly to see a valid signature, or a different number to see an invalid signature.
+
+
 
 
 3. Example Session
@@ -49,6 +52,8 @@ Enter the public key for verification: 13
 
 [Step 5] Verifying the signature with the provided public key...
 Result: The signature is VALID.
+
+
 
 4. Important Notes
 Small Parameters: The numbers (p=23, q=11, g=2) demonstrate the concept only. Real security requires large primes or elliptic curves.
