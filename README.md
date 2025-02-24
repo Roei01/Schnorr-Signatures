@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
+    <meta charset="UTF-8">
     <title>Schnorr Signature Demo – README</title>
     <style>
         body {
