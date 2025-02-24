@@ -47,7 +47,7 @@ Enter y correctly to see a valid verification, or something else to fail.
 The REAL public key (y) is: 13
 Enter the public key for verification: 13
 
-[Step 6] Verifying the signature with the provided public key...
+[Step 5] Verifying the signature with the provided public key...
 Result: The signature is VALID.
 
 4. Important Notes
