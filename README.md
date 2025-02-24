@@ -1,31 +1,86 @@
-Schnorr Signature Demo – README
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Schnorr Signature Demo – README</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 2rem;
+            line-height: 1.4;
+        }
+        h1, h2, h3 {
+            margin-top: 1.5rem;
+            color: #2c3e50;
+        }
+        code {
+            background: #f4f4f4;
+            padding: 0.2rem 0.4rem;
+            margin: 0 0.1rem;
+            border-radius: 3px;
+            font-size: 0.95rem;
+        }
+        pre {
+            background: #f4f4f4;
+            padding: 1rem;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .note {
+            background: #fff3cd;
+            border: 1px solid #ffeeba;
+            padding: 1rem;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
 
-This demonstration script shows the flow of generating a private key, creating a signature for a user-provided message, and verifying that signature manually. It uses small, insecure parameters (p=23, q=11, g=2), purely for educational purposes.
+<h1>Schnorr Signature Demo &ndash; README</h1>
 
-1. Features
+<p>
+    This demonstration script shows the flow of generating a private key, creating a signature for a user-provided 
+    message, and verifying that signature <strong>manually</strong>. It uses 
+    <em>small, insecure parameters</em> (<code>p=23</code>, <code>q=11</code>, <code>g=2</code>), purely 
+    for <strong>educational</strong> purposes. Real-world systems require much larger primes or elliptic curves.
+</p>
 
-Key Generation: Randomly picks a private key x and computes the public key y = g^x mod p.
-Message Signing: Prompts the user for a message, creates a Schnorr signature (r, s) using a random nonce k.
-Manual Verification: Displays the real public key, then asks the user to enter a public key. If they enter the correct y, the signature is valid; otherwise, it fails.
+<hr>
 
+<h2>Features</h2>
+<ul>
+    <li><strong>Key Generation:</strong> Randomly picks a private key <code>x</code> and computes the public key 
+        <code>y = g^x mod p</code>.
+    </li>
+    <li><strong>Message Signing:</strong> Prompts the user for a message, creates a Schnorr signature 
+        <code>(r, s)</code> using a random nonce <code>k</code>.
+    </li>
+    <li><strong>Manual Verification:</strong> Displays the real public key, then asks the user to enter a public 
+        key. If they enter the correct <code>y</code>, the signature is valid; otherwise, it fails.
+    </li>
+</ul>
 
+<h2>How to Run</h2>
+<ol>
+    <li>Make sure you have <strong>Python 3.6+</strong> installed.</li>
+    <li>Save the file as <code>schnorr_demo.py</code>.</li>
+    <li>In a terminal or command prompt, navigate to where <code>schnorr_demo.py</code> is located.</li>
+    <li>Run the command:
+        <pre>python schnorr_demo.py</pre>
+    </li>
+    <li>Follow the on-screen prompts:
+        <ul>
+            <li>Type a message.</li>
+            <li>The script shows <code>(r, s)</code> (your signature) and the real public key <code>y</code>.</li>
+            <li>Enter <code>y</code> exactly to see a valid signature; or something else to make it fail.</li>
+        </ul>
+    </li>
+</ol>
 
-2. How to Run
-Make sure you have Python (version 3.6+).
-Save the file as, for example, schnorr_demo.py.
-In a terminal, navigate to the file’s directory and run:
-python schnorr_demo.py
-
-Follow the on-screen prompts:
-Type a message.
-The script shows (r, s) (your signature) and the real y (public key).
-Enter y back in correctly to see a valid signature, or a different number to see an invalid signature.
-
-
-
-
-3. Example Session
-(Your actual numbers may differ because of random generation.)
+<h2>Example Session</h2>
+<p>Your actual numbers will differ due to random generation:</p>
+<pre>
 ==========================================
   Schnorr Signature Demonstration (Demo)
 ==========================================
@@ -36,7 +91,7 @@ Enter y back in correctly to see a valid signature, or a different number to see
   g = 2 (generator)
 
 [Step 2] Generating Keys (Private & Public)
-  Private key (x) = 7   (keep it secret!)
+  Private key (x) = 7 (keep it secret!)
   Public key (y)  = 13
 
 [Step 3] Enter a message to sign:
@@ -53,10 +108,23 @@ Enter the public key for verification: 13
 
 [Step 5] Verifying the signature with the provided public key...
 Result: The signature is VALID.
+</pre>
 
+<h2>Important Notes</h2>
+<div class="note">
+    <ul>
+        <li><strong>Small Parameters:</strong> The numbers 
+            <code>(p=23, q=11, g=2)</code> are for <em>demonstration only</em>. Real security needs large primes 
+            or elliptic curves.
+        </li>
+        <li><strong>Nonce <code>k</code>:</strong> Each signature uses a fresh <code>k</code>. Reusing <code>k</code> 
+            can expose the private key.
+        </li>
+        <li><strong>Production Use:</strong> For real-world systems, rely on professionally audited libraries 
+            (e.g., <code>OpenSSL</code>, <code>libsodium</code>) and standard elliptic curves.
+        </li>
+    </ul>
+</div>
 
-
-4. Important Notes
-Small Parameters: The numbers (p=23, q=11, g=2) demonstrate the concept only. Real security requires large primes or elliptic curves.
-Nonce k: Each signature uses a fresh k; reusing the same k can reveal the private key.
-Production Use: For real-world systems, rely on professionally audited libraries (e.g., OpenSSL, libsodium) and standard elliptic curves.
+</body>
+</html>
